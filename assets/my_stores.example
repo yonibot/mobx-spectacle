@@ -3,7 +3,7 @@ class TodosStore {
 
   constructor() {
     var someRequest = autorun(() => {
-      // Network request here when state change happens
+      // Do ajax request now. Can also use `observe` to watch a property.
     })
   }
 
