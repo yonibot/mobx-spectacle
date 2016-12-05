@@ -342,6 +342,27 @@ disheartening. Because (at least for my team and the specific projects we do), m
               { loc: [23,28] }
             ]} />
 
+          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
+            <Appear fid="1">
+              <Heading size={1} caps fit textColor="primary">
+                Further Resources
+              </Heading>
+            </Appear>
+          </Slide>
+
+          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
+            <Appear fid="2">
+              <List textColor="tertiary">
+                <ListItem>MobX and MobX-React Repo Docs</ListItem>
+                <ListItem>Michel's Egghead Course on MobX (basic) - <Link src="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx</Link></ListItem>
+                <ListItem>MobX Gitter - <Link src="https://gitter.im/mobxjs/mobx">https://gitter.im/mobxjs/mobx</Link></ListItem>
+                <ListItem>Michel's posts on Medium - <Link src="https://medium.com/@mweststrate/">https://medium.com/@mweststrate/</Link></ListItem>
+                <ListItem>These slides - <Link src="https://github.com/yonibot/mobx-spectacle">https://github.com/yonibot/mobx-spectacle</Link></ListItem>
+                <ListItem>The Sample Team Todos app - <Link src="https://github.com/yonibot/todos-mobx-semantic">https://github.com/yonibot/todos-mobx-semantic</Link></ListItem>
+              </List>
+            </Appear>
+          </Slide>
+
           <Slide transition={["slide", "spin"]} bgColor="primary">
             <Heading caps fit size={1} textColor="tertiary">
               Thank you!
