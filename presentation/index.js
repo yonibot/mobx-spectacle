@@ -7,7 +7,7 @@ import { Icon, Grid, Input, Header, Button } from 'semantic-ui-react';
 import CoffeeCup from './CoffeeCup';
 import CoffeeCupObserver from './CoffeeCupObserver';
 import CoffeeCupNoObserver from './CoffeeCupNoObserver';
-
+import CoffeeCupReact from './CoffeeCupReact';
 
 // Import Spectacle Core tags
 import {
@@ -63,7 +63,15 @@ export default class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
 
-          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
+          <Slide transition={["slide"]} bgColor="black">
+            <BlockQuote>
+              <Quote textSize="35px">I grumpily ignored the comments about mobx for a while, then finally broke and used it on a small side project. The results were...
+disheartening. Because (at least for my team and the specific projects we do), mobx was much much better.</Quote>
+              <Cite>A guy on HackerNews</Cite>
+            </BlockQuote>
+          </Slide>
+
+          <Slide transition={[]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
             <Appear fid="1">
               <Heading size={1} caps fit textColor="primary">
                 Dead-Simple MobX
@@ -80,14 +88,6 @@ export default class Presentation extends React.Component {
             </Appear>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="black">
-            <BlockQuote>
-              <Quote textSize="40px">I grumpily ignored the comments about mobx for a while, then finally broke and used it on a small side project. The results were...
-disheartening. Because (at least for my team and the specific projects we do), mobx was much much better.</Quote>
-              <Cite>A guy on HackerNews</Cite>
-            </BlockQuote>
-          </Slide>
-
           <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
             <Heading size={1} caps textColor="primary">
               Goals
@@ -101,12 +101,21 @@ disheartening. Because (at least for my team and the specific projects we do), m
             </List>
           </Slide>
 
+          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+            <div>
+              <Heading>WARNING</Heading>
+              <List>
+                <Appear><ListItem>ES6 and ES7 up ahead.</ListItem></Appear>
+                <Appear><ListItem>But it can all be done with ES5!</ListItem></Appear>
+              </List>
+            </div>
+          </Slide>
+
+
           <Slide transition={["zoom"]} bgColor="primary">
-            <Appear fid="1">
               <Heading size={1} fit caps lineHeight={1} textColor="black">
                 Why MobX?
               </Heading>
-            </Appear>
             <Appear fid="2">
               <Heading size={1} fit caps>
                 Incredible efficiency
@@ -121,9 +130,9 @@ disheartening. Because (at least for my team and the specific projects we do), m
             <div>
               <Heading>Mobx...</Heading>
               <List>
-                <Appear><ListItem>Mutable</ListItem></Appear>
                 <Appear><ListItem>Kind of like a spreadsheet</ListItem></Appear>
-                <Appear><ListItem>Has a tiny API:</ListItem></Appear>
+                <Appear><ListItem>Mutability over Immutabulity</ListItem></Appear>
+                <Appear><ListItem>Small API and Footprint</ListItem></Appear>
                 <Appear>
                   <List ordered start={2} type="A">
                       <ListItem>@observable</ListItem>
@@ -143,15 +152,57 @@ disheartening. Because (at least for my team and the specific projects we do), m
             </div>
           </Slide>
 
+          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <div>
+              <Text textColor='tertiary'>Plain old React component.</Text>
+              <CodePane
+                lang="jsx"
+                source={require("raw!../assets/caffeine_react.example")}
+                margin="20px auto"
+              />
+            </div>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+            <div>
+              <Text textColor='tertiary'>Step 1: Move from State to @observable</Text>
+            </div>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/caffeine_react.example")}
+            ranges={[ 
+              { loc: [5,8] }
+            ]} />
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/caffeine_no_observer.example")}
+            ranges={[ 
+              { loc: [6,8] }
+            ]} />
+
+          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+            <div>
+              <Text textColor='tertiary'>Step 2: Now we can mutate the state directly!</Text>
+            </div>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="js"
+            code={require("raw!../assets/caffeine_no_observer.example")}
+            ranges={[ 
+              { loc: [5,8] },
+              { loc: [8,12] }
+            ]} />
 
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <div>
-              <CodePane
-                lang="jsx"
-                source={require("raw!../assets/caffeine_no_observer.example")}
-                margin="20px auto"
-              />
-              <Text>Direct, Synchronous state mutation.</Text>
+              <Text>Direct, synchronous state mutation.</Text>
             </div>
           </Slide>
 
@@ -162,14 +213,15 @@ disheartening. Because (at least for my team and the specific projects we do), m
             </div>
           </Slide>
 
+
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <div>
+              <Text textColor='tertiary'>Step 3: Add @observer to automatically re-render the component.</Text>
               <CodePane
                 lang="jsx"
                 source={require("raw!../assets/caffeine_with_observer.example")}
                 margin="20px auto"
               />
-              <Text>Add @observer to automatically re-render the component.</Text>
             </div>
           </Slide>
 
@@ -184,14 +236,14 @@ disheartening. Because (at least for my team and the specific projects we do), m
 
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
             <div>
-              <Appear><CoffeeCupObserver /></Appear>
-              <Appear><Text textSize="1.5em" textColor="tertiary">We have a reaction!</Text></Appear>
+              <CoffeeCupObserver />
+              <Text textSize="1.5em" textColor="tertiary">We have a reaction!</Text>
             </div>
           </Slide>
 
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Optimize @observable derivations with @computed
+              Optimize @observable derivations further with @computed
             </Heading>
           </Slide>
 
@@ -238,6 +290,7 @@ disheartening. Because (at least for my team and the specific projects we do), m
                   source={`
                     npm install mobx --save
                     npm install mobx-react --save
+                    npm install --save-dev mobx-react-devtools
 
                     // And  read this for help enabling decorators and class properties:
                     // http://mobxjs.github.io/mobx/best/decorators.html
@@ -265,7 +318,7 @@ disheartening. Because (at least for my team and the specific projects we do), m
             <div>
               <Heading>Common Patterns</Heading>
               <List>
-                <Appear><ListItem>Explicit Actions</ListItem></Appear>
+                <ListItem>Explicit Actions</ListItem>
               </List>
             </div>
           </Slide>
@@ -275,6 +328,7 @@ disheartening. Because (at least for my team and the specific projects we do), m
             lang="js"
             code={require("raw!../assets/my_stores.example")}
             ranges={[ 
+              { loc: [0,13] },
               { loc: [9,14] },
               { loc: [30,31] },
             ]} />
@@ -296,9 +350,10 @@ disheartening. Because (at least for my team and the specific projects we do), m
             ranges={[ 
               { loc: [0,3] },
               { loc: [9,13] },
-              { loc: [14,15] },
+              { loc: [14,16] },
+              { loc: [17,19] },
               { loc: [20,21] },
-              { loc: [22,24] },
+              { loc: [23,24] },
               { loc: [32,35] },
             ]} />
 
@@ -321,27 +376,6 @@ disheartening. Because (at least for my team and the specific projects we do), m
               { loc: [3,8] }
             ]} />
 
-
-          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-            <div>
-              <Heading>Common Patterns</Heading>
-              <List>
-                <ListItem>Explicit Actions</ListItem>
-                <ListItem>Domain Stores</ListItem>
-                <ListItem>Automagic Network Requests</ListItem>
-                <Appear><ListItem>Simple Routing</ListItem></Appear>
-              </List>
-            </div>
-          </Slide>
-
-          <CodeSlide
-            transition={[]}
-            lang="js"
-            code={require("raw!../assets/my_stores.example")}
-            ranges={[ 
-              { loc: [23,28] }
-            ]} />
-
           <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
             <Appear fid="1">
               <Heading size={1} caps fit textColor="primary">
@@ -350,17 +384,15 @@ disheartening. Because (at least for my team and the specific projects we do), m
             </Appear>
           </Slide>
 
-          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-            <Appear fid="2">
-              <List textColor="tertiary">
-                <ListItem>MobX and MobX-React Repo Docs</ListItem>
-                <ListItem>Michel's Egghead Course on MobX (basic) - <Link src="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx</Link></ListItem>
-                <ListItem>MobX Gitter - <Link src="https://gitter.im/mobxjs/mobx">https://gitter.im/mobxjs/mobx</Link></ListItem>
-                <ListItem>Michel's posts on Medium - <Link src="https://medium.com/@mweststrate/">https://medium.com/@mweststrate/</Link></ListItem>
-                <ListItem>These slides - <Link src="https://github.com/yonibot/mobx-spectacle">https://github.com/yonibot/mobx-spectacle</Link></ListItem>
-                <ListItem>The Sample Team Todos app - <Link src="https://github.com/yonibot/todos-mobx-semantic">https://github.com/yonibot/todos-mobx-semantic</Link></ListItem>
+          <Slide transition={["slide"]} bgColor='secondary'>
+              <List textColor="primary">
+                <Appear><ListItem>MobX and MobX-React Repo Docs</ListItem></Appear>
+                <Appear><ListItem>Michel's Egghead Course on MobX (basic) - <Link src="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx</Link></ListItem></Appear>
+                <Appear><ListItem>MobX Gitter - <Link src="https://gitter.im/mobxjs/mobx">https://gitter.im/mobxjs/mobx</Link></ListItem></Appear>
+                <Appear><ListItem>Michel's posts on Medium - <Link src="https://medium.com/@mweststrate/">https://medium.com/@mweststrate/</Link></ListItem></Appear>
+                <Appear><ListItem>These slides - <Link src="https://github.com/yonibot/mobx-spectacle">https://github.com/yonibot/mobx-spectacle</Link></ListItem></Appear>
+                <Appear><ListItem>The Sample Team Todos app - <Link src="https://github.com/yonibot/todos-mobx-semantic">https://github.com/yonibot/todos-mobx-semantic</Link></ListItem></Appear>
               </List>
-            </Appear>
           </Slide>
 
           <Slide transition={["slide", "spin"]} bgColor="primary">

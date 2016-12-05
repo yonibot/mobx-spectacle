@@ -3,7 +3,7 @@ class TodosStore {
 
   constructor() {
     var someRequest = autorun(() => {
-      // Do ajax request now. Can also use `observe` to watch a property.
+      // Do ajax request now. Can also use `observe` to watch a single property.
     })
   }
 
