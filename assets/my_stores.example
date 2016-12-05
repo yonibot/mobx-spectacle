@@ -1,0 +1,29 @@
+class TodosStore {
+  @observable todos = [];
+
+  constructor() {
+    var someRequest = autorun(() => {
+      // Network request here when state change happens
+    })
+  }
+
+  @action addTodo(text, user) {
+    this.todos.push(new Todo(text, user));
+  }
+ }
+
+const usersStore = new UsersStore();
+const todosStore = new TodosStore();
+
+usersStore.addUser(new User({username: 'Gemma', email: 'gemma@example.com'})); 
+todosStore.addTodo('Go treasure hunting', usersStore.users[0]);
+
+export const allStores = {usersStore, todosStore}
+
+ReactDOM.render((
+  <Provider {...allStores}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+), document.getElementById('react-root'));

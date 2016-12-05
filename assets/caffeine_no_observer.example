@@ -1,0 +1,27 @@
+import React, { Component } from 'react'
+import { observable } from 'mobx';
+
+const cupImage = require("../assets/coffeecup.png");
+
+class CoffeeCup extends Component {
+	@observable caffeineAmount = {cups: 0}
+
+	moreCaffeine = () => {
+		// STATE MUTATED HERE!
+		this.caffeineAmount.cups++;
+	}
+
+	render() {
+		return (
+			<div>
+				<img 
+					src={cupImage} 
+					height="250px"
+					onClick={ this.moreCaffeine } />
+				<h2 style={{color: 'white'}}>{ this.caffeineAmount.cups }</h2>
+			</div>
+		)
+	}
+}
+
+export { CoffeeCup as default };
