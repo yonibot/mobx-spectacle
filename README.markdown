@@ -1,4 +1,4 @@
-# Spectacle Boilerplate
+# Spectacle Slide-Deck for MobX [2017]
 
 ## Reference
 
