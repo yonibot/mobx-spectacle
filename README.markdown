@@ -1,4 +1,4 @@
-# Spectacle Slide-Deck for MobX [2017]
+# Spectacle Slide-Deck on MobX [2017]
 
 ## Reference
 
