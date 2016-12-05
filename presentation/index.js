@@ -83,6 +83,8 @@ disheartening. Because (at least for my team and the specific projects we do), m
                 <div>
                   <Text textSize="2em" margin="20px 0px 0px" bold textColor="tertiary">Yoni Weisbrod</Text>
                   <Text textSize="1em" margin="20px 0px 0px" bold textColor="primary">@yoniweisbrod</Text>
+                  <br />
+                  <Text textColor='tertiary'>http://mobx-talk.surge.sh/</Text>
                 </div>
               </div>
             </Appear>
