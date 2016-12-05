@@ -78,12 +78,12 @@ disheartening. Because (at least for my team and the specific projects we do), m
               </Heading>
             </Appear>
             <Appear fid="2">
-              <Image src={images.logo.replace("/", "")} margin="40px auto 60px" height="100px"/>
-            </Appear>
-            <Appear fid="3">
               <div>
-                <Text textSize="2em" margin="20px 0px 0px" bold textColor="tertiary">Yoni Weisbrod</Text>
-                <Text textSize="1em" margin="20px 0px 0px" bold textColor="primary">@yoniweisbrod</Text>
+                <Image src={images.logo.replace("/", "")} margin="40px auto 60px" height="100px"/>
+                <div>
+                  <Text textSize="2em" margin="20px 0px 0px" bold textColor="tertiary">Yoni Weisbrod</Text>
+                  <Text textSize="1em" margin="20px 0px 0px" bold textColor="primary">@yoniweisbrod</Text>
+                </div>
               </div>
             </Appear>
           </Slide>
@@ -99,6 +99,7 @@ disheartening. Because (at least for my team and the specific projects we do), m
               <ListItem textColor="tertiary">Common Patterns</ListItem>
               <ListItem textColor="tertiary">Further Resources</ListItem>
             </List>
+            <Text textColor='primary'>And some fun along the way!</Text>
           </Slide>
 
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
@@ -124,26 +125,6 @@ disheartening. Because (at least for my team and the specific projects we do), m
             <Appear fid="3">
               <Text textSize="1.5em" margin="20px 0px 0px" bold>...without the boilerplate!</Text>
             </Appear>
-          </Slide>
-
-          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-            <div>
-              <Heading>Mobx...</Heading>
-              <List>
-                <Appear><ListItem>Kind of like a spreadsheet</ListItem></Appear>
-                <Appear><ListItem>Mutability over Immutabulity</ListItem></Appear>
-                <Appear><ListItem>Small API and Footprint</ListItem></Appear>
-                <Appear>
-                  <List ordered start={2} type="A">
-                      <ListItem>@observable</ListItem>
-                      <ListItem>@computed</ListItem>
-                      <ListItem>@action</ListItem>
-                      <ListItem>@observer (from MobX-React)</ListItem>
-                  </List>
-                </Appear>
-              </List>
-              <Appear><Heading textSize="1.5em" margin="8px 0px 0px">Let's see it in action!</Heading></Appear>
-            </div>
           </Slide>
 
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
@@ -263,6 +244,25 @@ disheartening. Because (at least for my team and the specific projects we do), m
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
             <div>
               <CoffeeCup />
+            </div>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+            <div>
+              <Heading>Mobx...</Heading>
+              <List>
+                <Appear><ListItem>Kind of like a spreadsheet</ListItem></Appear>
+                <Appear><ListItem>Mutability over Immutabulity</ListItem></Appear>
+                <Appear><ListItem>Small API and Footprint</ListItem></Appear>
+                <Appear>
+                  <List ordered start={2} type="A">
+                      <ListItem>@observable</ListItem>
+                      <ListItem>@computed</ListItem>
+                      <ListItem>@action</ListItem>
+                      <ListItem>@observer (from MobX-React)</ListItem>
+                  </List>
+                </Appear>
+              </List>
             </div>
           </Slide>
 
