@@ -27,3 +27,12 @@ ReactDOM.render((
     </BrowserRouter>
   </Provider>
 ), document.getElementById('react-root'));
+
+useStrict(true);
+
+@inject('todosStore', 'usersStore')
+@observer class TodoListView extends Component {
+  currentUser = () => {
+    return this.props.usersStore.users.find(e=>e.username==this.props.params.username);
+  }
+  ...
