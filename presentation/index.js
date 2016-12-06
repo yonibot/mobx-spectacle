@@ -82,7 +82,8 @@ disheartening. Because (at least for my team and the specific projects we do), m
                 <Image src={images.logo.replace("/", "")} margin="40px auto 60px" height="100px"/>
                 <div>
                   <Text textSize="2em" margin="20px 0px 0px" bold textColor="tertiary">Yoni Weisbrod</Text>
-                  <Text textSize="1em" margin="20px 0px 0px" bold textColor="primary">@yoniweisbrod</Text>
+                  <Text textSize="1em" margin="20px 0px 0px" bold textColor="primary">Twitter: @yoniweisbrod</Text>
+                  <Text textSize="1em" margin="20px 0px 0px" bold textColor="primary">GitHub: @yonibot</Text>
                   <br />
                   <Text textColor='tertiary'>http://mobx-talk.surge.sh/</Text>
                 </div>
