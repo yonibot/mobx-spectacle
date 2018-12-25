@@ -7,7 +7,6 @@ class CoffeeCup extends Component {
 	@observable caffeineAmount = {cups: 0}
 
 	moreCaffeine = () => {
-		// STATE MUTATED HERE!
 		this.caffeineAmount.cups++;
 	}
 
